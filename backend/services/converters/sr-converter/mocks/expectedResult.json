@@ -1,0 +1,114 @@
+{
+    "players": {
+        "e5b67a2e-e0f7-4646-a343-c9bd0ae447f0": {
+            "rushing": {
+                "attempts": 10,
+                "touchdowns": 0,
+                "yards": -4
+            },
+            "receiving": {
+                "receptions": 1,
+                "yards": 4
+            }
+        },
+        "c90711f2-5c4e-4f2e-8635-0d3f2336f581": {
+            "rushing": {
+                "attempts": 2,
+                "touchdowns": 0,
+                "yards": -15
+            },
+            "receiving": {
+                "receptions": null,
+                "yards": null
+            }
+        },
+        "713daff7-86cc-4283-91a8-1579c3f58f59": {
+            "rushing": {
+                "attempts": null,
+                "touchdowns": null,
+                "yards": null
+            },
+            "receiving": {
+                "receptions": 8,
+                "yards": 92
+            }
+        },
+        "62f377a6-ff87-4784-9631-05c555c4b14a": {
+            "rushing": {
+                "attempts": 12,
+                "touchdowns": 0,
+                "yards": 73
+            },
+            "receiving": {
+                "receptions": 2,
+                "yards": 39
+            }
+        },
+        "e11a2815-8f31-44b0-8c37-64240bcbc059": {
+            "rushing": {
+                "attempts": 14,
+                "touchdowns": 2,
+                "yards": 73
+            },
+            "receiving": {
+                "receptions": null,
+                "yards": null
+            }
+        },
+        "f94fb8a3-cd77-4064-bc65-447550b43622": {
+            "rushing": {
+                "attempts": null,
+                "touchdowns": null,
+                "yards": null
+            },
+            "receiving": {
+                "receptions": 9,
+                "yards": 47
+            }
+        }
+    },
+    "teams": {
+        "344e408b-846e-44ac-b491-7802ab0f7af0": {
+            "players": [
+                "e5b67a2e-e0f7-4646-a343-c9bd0ae447f0",
+                "c90711f2-5c4e-4f2e-8635-0d3f2336f581",
+                "713daff7-86cc-4283-91a8-1579c3f58f59"
+            ],
+            "type": "HOME",
+            "totals": {
+                "rushing": {
+                    "attempts": 39,
+                    "touchdowns": 0,
+                    "yards": 90
+                },
+                "receiving": {
+                    "receptions": 31,
+                    "yards": 257
+                }
+            }
+        },
+        "ba27615c-07df-41f0-864b-332575f744f2": {
+            "players": [
+                "62f377a6-ff87-4784-9631-05c555c4b14a",
+                "e11a2815-8f31-44b0-8c37-64240bcbc059",
+                "f94fb8a3-cd77-4064-bc65-447550b43622"
+            ],
+            "type": "AWAY",
+            "totals": {
+                "rushing": {
+                    "attempts": 37,
+                    "touchdowns": 1,
+                    "yards": 105
+                },
+                "receiving": {
+                    "receptions": 27,
+                    "yards": 230
+                }
+            }
+        }
+    },
+    "game": {
+        "id": "15adf794-5630-4dc4-b0e7-f8d437b585b1",
+        "attendance": "33876"
+    }
+}

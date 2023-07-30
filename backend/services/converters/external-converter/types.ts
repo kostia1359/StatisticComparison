@@ -24,7 +24,7 @@ export interface IGame {
   away: ITeam;
 }
 
-export interface IExternalSourceData {
+export interface ISourceData {
   sourceId: string;
   game: IGame;
 }

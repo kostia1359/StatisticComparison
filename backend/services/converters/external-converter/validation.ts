@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import type { IExternalSourceData, IGamePlayer, ITeam, IGame } from './types';
+import type { ISourceData, IGamePlayer, ITeam, IGame } from './types';
 
 const gamePlayerSchema = Joi.object<IGamePlayer>({
   id: Joi.string().required(),
@@ -12,7 +12,7 @@ const gamePlayerSchema = Joi.object<IGamePlayer>({
 
 const teamSchema = Joi.object<ITeam>({
   id: Joi.string().required(),
-  players: Joi.array().items(gamePlayerSchema),
+  players: Joi.array().items(gamePlayerSchema).unique('id'),
   rushAttempts: Joi.number().required(),
   rushTds: Joi.number().required(),
   rushYdsGained: Joi.number().required(),
@@ -27,7 +27,7 @@ const gameSchema = Joi.object<IGame>({
   away: teamSchema.required(),
 });
 
-export const externalSourceDataSchema = Joi.object<IExternalSourceData>({
+export const sourceDataSchema = Joi.object<ISourceData>({
   sourceId: Joi.string().required(),
   game: gameSchema.required(),
 });

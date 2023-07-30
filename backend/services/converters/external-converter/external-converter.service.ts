@@ -6,19 +6,21 @@ import {
   IStatisticEntry,
   ITeamStatistic,
 } from '../types';
-import { IExternalSourceData, IGamePlayer, ITeam } from './types';
+import { ISourceData, IGamePlayer, ITeam } from './types';
 
-import { externalSourceDataSchema } from './validation';
+import { sourceDataSchema } from './validation';
 
-export class ExternalConverterService extends AbstractConverter<IExternalSourceData> {
-  constructor(data: IExternalSourceData) {
-    externalSourceDataSchema.validate(data);
-    const { error, value } = externalSourceDataSchema.validate(data, {
+export const SERVICE_NAME = 'external';
+
+export class ExternalConverterService extends AbstractConverter<ISourceData> {
+  constructor(data: ISourceData) {
+    sourceDataSchema.validate(data);
+    const { error, value } = sourceDataSchema.validate(data, {
       allowUnknown: false,
     });
 
     if (error) {
-      throw errors.dataFormatDoesNotMatch('external');
+      throw errors.dataFormatDoesNotMatch(SERVICE_NAME);
     }
 
     super(value);
@@ -54,7 +56,7 @@ export class ExternalConverterService extends AbstractConverter<IExternalSourceD
 
   convertData(): IConvertedData {
     if (this.data.game.home.id === this.data.game.away.id) {
-      throw errors.teamCanNotPlayWithItself('external');
+      throw errors.teamCanNotPlayWithItself(SERVICE_NAME);
     }
     const teams: Record<string, ITeamStatistic> = {
       [this.data.game.home.id]: {
@@ -73,7 +75,7 @@ export class ExternalConverterService extends AbstractConverter<IExternalSourceD
     this.data.game.home.players.forEach((player) => {
       const playerId = player.id;
       if (players[playerId]) {
-        throw errors.duplicatePlayer('external');
+        throw errors.duplicatePlayer(SERVICE_NAME);
       }
 
       players[playerId] = this.createPlayerStatistic(player);
@@ -83,7 +85,7 @@ export class ExternalConverterService extends AbstractConverter<IExternalSourceD
     this.data.game.away.players.forEach((player) => {
       const playerId = player.id;
       if (players[playerId]) {
-        throw errors.duplicatePlayer('external');
+        throw errors.duplicatePlayer(SERVICE_NAME);
       }
 
       players[playerId] = this.createPlayerStatistic(player);

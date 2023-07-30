@@ -1,8 +1,7 @@
-import { ExternalConverterService } from './external-converter.service';
+import { ExternalConverterService, SERVICE_NAME } from './external-converter.service';
 import { errors } from '../../../common/errors/errors';
-import { IExternalSourceData, IGamePlayer, ITeam } from './types';
+import { ISourceData, IGamePlayer, ITeam } from './types';
 import { faker } from '@faker-js/faker';
-import * as fs from 'fs';
 import correctData from './mocks/correctData.json';
 import expectedResult from './mocks/expectedResult.json';
 
@@ -20,7 +19,7 @@ const generatePlayer = (): IGamePlayer => {
 const generateTeam = (): ITeam => {
   return {
     id: faker.string.uuid(),
-    players: Array.from({ length: faker.number.int({ min: 0, max: 5 }) }, () => generatePlayer()),
+    players: Array.from({ length: faker.number.int({ min: 1, max: 5 }) }, () => generatePlayer()),
     rushAttempts: faker.number.int({ min: 0, max: 255 }),
     rushTds: faker.number.int({ min: 0, max: 255 }),
     rushYdsGained: faker.number.int({ min: 0, max: 255 }),
@@ -43,13 +42,13 @@ describe('ExternalConverterService', () => {
       game: {},
     };
 
-    expect(() => new ExternalConverterService(invalidData as IExternalSourceData)).toThrow(
-      errors.dataFormatDoesNotMatch('external'),
+    expect(() => new ExternalConverterService(invalidData as ISourceData)).toThrow(
+      errors.dataFormatDoesNotMatch(SERVICE_NAME),
     );
   });
 
   it('should throw an error if a team plays with itself', () => {
-    const invalidData: IExternalSourceData = {
+    const invalidData: ISourceData = {
       sourceId: 'external',
       game: {
         id: faker.string.uuid(),
@@ -61,11 +60,11 @@ describe('ExternalConverterService', () => {
     invalidData.game.home.id = invalidData.game.away.id;
 
     const converter = new ExternalConverterService(invalidData);
-    expect(() => converter.convertData()).toThrow(errors.teamCanNotPlayWithItself('external'));
+    expect(() => converter.convertData()).toThrow(errors.teamCanNotPlayWithItself(SERVICE_NAME));
   });
 
   it('should throw an error for duplicate players', () => {
-    const duplicatePlayerData: IExternalSourceData = {
+    const duplicatePlayerData: ISourceData = {
       sourceId: 'external',
       game: {
         id: faker.string.uuid(),
@@ -80,6 +79,6 @@ describe('ExternalConverterService', () => {
     duplicatePlayerData.game.away.players.push({ ...generatePlayer(), id: duplicatePlayerId });
 
     const converter = new ExternalConverterService(duplicatePlayerData);
-    expect(() => converter.convertData()).toThrow(errors.duplicatePlayer('external'));
+    expect(() => converter.convertData()).toThrow(errors.duplicatePlayer(SERVICE_NAME));
   });
 });
