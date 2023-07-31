@@ -97,7 +97,7 @@ export class ExternalConverterService extends AbstractConverter<ISourceData> {
       teams,
       game: {
         id: this.data.game.id,
-        attendance: this.data.game.attendance.toString(),
+        attendance: this.data.game.attendance,
       },
     };
 

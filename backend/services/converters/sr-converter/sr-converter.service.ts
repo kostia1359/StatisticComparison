@@ -102,7 +102,7 @@ export class SrConverterService extends AbstractConverter<ISourceData> {
 
     const homePlayers = this.createPlayersStatistic(homeTeam);
     const awayPlayers = this.createPlayersStatistic(awayTeam);
-    
+
     const teams: Record<string, ITeamStatistic> = {
       [homeTeam.id]: {
         players: Object.keys(homePlayers),
@@ -135,7 +135,7 @@ export class SrConverterService extends AbstractConverter<ISourceData> {
       players,
       game: {
         id: this.data.game.id,
-        attendance: this.data.game.attendance.toString(),
+        attendance: this.data.game.attendance,
       },
     };
 

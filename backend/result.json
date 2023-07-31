@@ -1,114 +1,66 @@
 {
+    "game": {
+        "id": "id",
+        "attendance": 100
+    },
     "teams": {
-        "344e408b-846e-44ac-b491-7802ab0f7af0": {
+        "home_t1": {
             "players": [
-                "e5b67a2e-e0f7-4646-a343-c9bd0ae447f0",
-                "c90711f2-5c4e-4f2e-8635-0d3f2336f581",
-                "713daff7-86cc-4283-91a8-1579c3f58f59"
+                "p1"
             ],
-            "type": "HOME",
             "totals": {
                 "rushing": {
-                    "attempts": 39,
-                    "touchdowns": 0,
-                    "yards": 78
+                    "attempts": 10,
+                    "touchdowns": 10,
+                    "yards": 10
                 },
                 "receiving": {
-                    "receptions": 31,
-                    "yards": 257
+                    "receptions": 10,
+                    "yards": 10
                 }
-            }
+            },
+            "type": "HOME"
         },
-        "ba27615c-07df-41f0-864b-332575f744f2": {
+        "away_t1": {
             "players": [
-                "62f377a6-ff87-4784-9631-05c555c4b14a",
-                "e11a2815-8f31-44b0-8c37-64240bcbc059",
-                "f94fb8a3-cd77-4064-bc65-447550b43622"
+                "p1"
             ],
-            "type": "AWAY",
             "totals": {
                 "rushing": {
-                    "attempts": 37,
-                    "touchdowns": 1,
-                    "yards": 97
+                    "attempts": 10,
+                    "touchdowns": 10,
+                    "yards": 10
                 },
                 "receiving": {
-                    "receptions": 27,
-                    "yards": 239
+                    "receptions": 10,
+                    "yards": 10
                 }
-            }
+            },
+            "type": "AWAY"
         }
     },
     "players": {
-        "e5b67a2e-e0f7-4646-a343-c9bd0ae447f0": {
+        "p1": {
             "rushing": {
                 "attempts": 10,
-                "touchdowns": 0,
-                "yards": -4
+                "touchdowns": 10,
+                "yards": 10
             },
             "receiving": {
-                "receptions": 8,
-                "yards": 41
+                "receptions": 10,
+                "yards": 10
             }
         },
-        "c90711f2-5c4e-4f2e-8635-0d3f2336f581": {
+        "p2": {
             "rushing": {
-                "attempts": 2,
-                "touchdowns": 0,
-                "yards": -9
+                "attempts": 20,
+                "touchdowns": 20,
+                "yards": 20
             },
             "receiving": {
-                "receptions": null,
-                "yards": null
-            }
-        },
-        "713daff7-86cc-4283-91a8-1579c3f58f59": {
-            "rushing": {
-                "attempts": null,
-                "touchdowns": null,
-                "yards": null
-            },
-            "receiving": {
-                "receptions": 8,
-                "yards": 88
-            }
-        },
-        "62f377a6-ff87-4784-9631-05c555c4b14a": {
-            "rushing": {
-                "attempts": 12,
-                "touchdowns": 0,
-                "yards": 73
-            },
-            "receiving": {
-                "receptions": 2,
-                "yards": 39
-            }
-        },
-        "e11a2815-8f31-44b0-8c37-64240bcbc059": {
-            "rushing": {
-                "attempts": 14,
-                "touchdowns": 1,
-                "yards": 76
-            },
-            "receiving": {
-                "receptions": null,
-                "yards": null
-            }
-        },
-        "f94fb8a3-cd77-4064-bc65-447550b43622": {
-            "rushing": {
-                "attempts": null,
-                "touchdowns": null,
-                "yards": null
-            },
-            "receiving": {
-                "receptions": 8,
-                "yards": 46
+                "receptions": 20,
+                "yards": 20
             }
         }
-    },
-    "game": {
-        "id": "15adf794-5630-4dc4-b0e7-f8d437b585b1",
-        "attendance": "62487"
     }
 }

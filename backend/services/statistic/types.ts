@@ -1,30 +1,31 @@
-interface IDiscrepancies {}
+import { IDiscrepancies } from '../discrepancies/types';
 
-interface IGetDiscrepanciesParams {
-  page: number;
-  limit: number;
-}
-
-interface IGetDiscrepanciesByTeamParams extends IGetDiscrepanciesParams {
+interface IGetDiscrepanciesByTeamParams {
   teamId: string;
 }
 
-interface IGetDiscrepanciesByPlayerParams extends IGetDiscrepanciesParams {
+interface IGetDiscrepanciesByPlayerParams {
   playerId: string;
 }
 
-interface IGetDiscrepanciesByGameParams extends IGetDiscrepanciesParams {
-  homeTeamId: string;
+interface IGetDiscrepanciesByGameParams {
+  gameId: string;
 }
 
 type TGetDiscrepanciesParams =
-  | IGetDiscrepanciesParams
   | IGetDiscrepanciesByTeamParams
   | IGetDiscrepanciesByPlayerParams
-  | IGetDiscrepanciesByGameParams;
+  | IGetDiscrepanciesByGameParams
+  | {};
 
 interface IStatisticService {
-  getDiscrepancies(params: TGetDiscrepanciesParams): IDiscrepancies[];
+  getDiscrepancies(params: TGetDiscrepanciesParams): IDiscrepancies | null;
 }
 
-export type { IStatisticService, TGetDiscrepanciesParams, IDiscrepancies };
+export type {
+  IStatisticService,
+  TGetDiscrepanciesParams,
+  IGetDiscrepanciesByTeamParams,
+  IGetDiscrepanciesByPlayerParams,
+  IGetDiscrepanciesByGameParams,
+};

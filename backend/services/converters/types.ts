@@ -21,16 +21,22 @@ export interface ITeamStatistic {
   type: EGameType;
 }
 
+export interface IGame {
+  id: string;
+  attendance: number;
+}
+
 export interface IConvertedData {
   players: Record<string, IStatisticEntry>;
   teams: Record<string, ITeamStatistic>;
-  game: {
-    id: string;
-    attendance: string;
-  };
+  game: IGame;
 }
 
-export abstract class AbstractConverter<T> {
+export interface IAbstractConverter {
+  convertData(): IConvertedData;
+}
+
+export abstract class AbstractConverter<T> implements IAbstractConverter {
   data: T;
   constructor(data: T) {
     this.data = data;
